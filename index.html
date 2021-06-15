@@ -1,4 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  hhhh
-  这里将会是我们的拖拉机轨迹数据平台
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>拖拉机轨迹大数据平台</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/echarts.min.js"></script>
+
+    <style>
+        .t_title {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 2.5em;
+            line-height: 80px;
+            color: #fff;
+        }
+
+        #chart_map {
+            cursor: pointer;
+        }
+
+        .t_show {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 2px;
+            background: #2C58A6;
+            padding: 2px 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .paddtop {
+            padding-top: 50px;
+        }
+
+        .container-fluid {
+            padding-right: 47px;
+            padding-left: 18px;
+        }
+    </style>
 </head>
+<body>
+
+<!--header-->
+<div class="header">
+    <div class="bg_header">
+        <div class="header_nav fl t_title">
+            拖拉机轨迹可视化平台 20190414
+        </div>
+    </div>
+</div>
+
+<!--main-->
+<div class="data_content">
+
+    <div align="center">
+        <div class="data_time" align="center">
+            <a href="index0924.html" class="btn btn-default" style="background-color: #2c58a6;color: #FFFFFF">20190924</a>
+            <a href="General_Display_新疆田.html" class="btn btn-default" style="background-color: #2c58a6;color: #FFFFFF">大屏可视化</a>
+            <a href="index0928.html" class="btn btn-default" style="background-color: #2c58a6;color: #FFFFFF">20190928</a>
+
+        </div>
+    </div>
+
+    <div class="data_main">
+        <div class="main_left fl">
+            <!--左上边框-->
+            <div class="left_1 t_btn6" style="cursor: pointer;">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="img/t_1.png" alt="">
+                    面积占比图
+                </div>
+                <div id="chart_1" class="chart" style="width:100%;height: 280px;"></div>
+            </div>
+            <!--左上边框-->
+            <div class="left_2" style="cursor: pointer;">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+
+                <div class="main_title">
+                    <img src="img/t_2.png" alt="">
+                    速度变化图
+                </div>
+                <div id="chart_2" class="chart t_btn9" style="width:100%;height: 280px;"></div>
+            </div>
+        </div>
+        <div class="main_center fl">
+            <div class="center_text">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                    <div>
+                        <iframe src="General_Display_新疆田.html" style="width:100%;height:610px;"></iframe>
+                    </div>
+                </div>
+                <div class="main_title">
+                    总的轨迹图
+                </div>
+
+
+            </div>
+        </div>
+        <div class="main_right fr">
+            <div class="right_1">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="img/t_4.png" alt="">
+                    区域速度
+                </div>
+                <div id="chart_3" class="echart t_btn7" style="width:100%;height: 280px;"></div>
+            </div>
+            <div class="right_2">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="img/t_5.png" alt="">
+                    时间占比
+                </div>
+                <div id="chart_4" class="echart fl t_btn4" style="width:100%;height: 280px;cursor: pointer;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--     20190414 - 1a-->
+    <div class="container-fluid">
+        <div class="row paddtop">
+            <div class="col-md-3 ">
+                <div class="col-md-3" style="width:320px;height: 160px; margin: 0px;background: url(img/line1.png);">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; "></p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">耕地规律分析：</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">1.整体轨迹为一块扁平的长条平行四边形。</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">2.耕作是在一定范围内来回进行，不成圆圈。</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">3.转弯时的耕地速度低于直线耕地速度。</p>
+
+                </div>
+                <div class="col-md-3" style="width:320px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 10px; text-align: center"></p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 20px; text-align: center">总耕地时间</p>
+                </div>
+                <div class="col-md-3" id="main11" style="width:320px;height:280px;margin: 0px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main11'));
+                    var option1 = {
+                        series: [{
+                            type: 'gauge',
+                            startAngle: 180,
+                            endAngle: 0,
+                            min: 0,
+                            max: 1,
+                            splitNumber: 8,
+                            axisLine: {
+                                lineStyle: {
+                                    width: 4,
+                                    color: [
+                                        [0.25, '#FF6E76'],
+                                        [0.5, '#FDDD60'],
+                                        [0.75, '#58D9F9'],
+                                        [1, '#7CFFB2']
+                                    ]
+                                }
+                            },
+                            pointer: {
+                                icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                                length: '40%',
+                                width: 3,
+                                offsetCenter: [0, '-70%'],
+                                itemStyle: {
+                                    color: 'auto'
+                                }
+                            },
+                            axisTick: {
+                                length: 10,
+                                lineStyle: {
+                                    color: 'auto',
+                                    width: 1
+                                }
+                            },
+                            splitLine: {
+                                length: 15,
+                                lineStyle: {
+                                    color: 'auto',
+                                    width: 2
+                                }
+                            },
+                            axisLabel: {
+                                color: 'ffffff',
+                                fontSize: 10,
+                                rotate: 'horizontal',
+                                distance: -40,
+                                formatter: function (value) {
+                                    if (value === 0.875) {
+                                        return '>4.5h';
+                                    } else if (value === 0.625) {
+                                        return '3h~4.5h';
+                                    } else if (value === 0.375) {
+                                        return '1.5h~3h';
+                                    } else if (value === 0.125) {
+                                        return '<1.5h';
+                                    }
+                                }
+                            },
+                            title: {
+                                color: 'ffffff',
+                                offsetCenter: [0, '-20%'],
+                                fontSize: 10
+                            },
+                            detail: {
+                                fontSize: 10,
+                                offsetCenter: [0, '0%'],
+                                valueAnimation: true,
+                                formatter: function (value) {
+                                    return '\n' + '\n' + '3小时42分00秒';
+                                },
+                                color: 'auto'
+                            },
+                            data: [{
+                                value: 0.611
+
+                            }]
+                        }]
+                    };
+                    myChart.setOption(option1);
+                    // 使用刚指定的配置项和数据显示图表。
+                </script>
+            </div>
+            <div class="col-md-6 package1" style="cursor: pointer;">
+                <!--                    左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+
+                <div id="chart_6" style="width:100%; height: 400px ;margin: 0px;"></div>
+            </div>
+            <!--     20190414 - 1b-->
+            <div class="col-md-3 ">
+                <div class="col-md-3" style="width:370px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 20px;text-align: center">1 号田平均速度与耕地面积</p>
+                </div>
+                <div class="col-md-3" id="main1" style="width:370px;height:300px;margin: 0px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main1'));
+                    var option1 = {
+
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    label: {
+                                        show: true,
+                                        fontSize: '16',
+                                        //color:'FFFFFF',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                labelLine: {
+                                    show: true
+                                },
+                                data: [
+                                    {
+                                        value: 300,
+                                        name: '平均速度：' + '\n' + '\n' + '5108' + '平方米/小时',
+                                        itemStyle: {color: "#4ea8de"}
+                                    },
+                                    {
+                                        value: 300,
+                                        name: '耕作面积：' + '\n' + '\n' + '18902' + '平方米',
+                                        itemStyle: {color: "#64dfdf"}
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option1);
+
+                    // 使用刚指定的配置项和数据显示图表。
+                </script>
+                <div class="col-md-3" style="width:370px; margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;  font-size: 15px;text-align: center;background: url(img/line2.png)">
+                        1 号田占地面积适中，时均耕地速度也比较可观。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--     20190414 - 2a-->
+    <div class="container-fluid">
+        <div class="row paddtop">
+            <div class="col-md-3 ">
+                <div class="col-md-3" style="width:320px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 20px;text-align: center">2 号田平均速度与耕地面积</p>
+                </div>
+                <div class="col-md-3" id="main2" style="width:320px;height:300px;margin: 0px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main2'));
+                    var option1 = {
+
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    label: {
+                                        show: true,
+                                        fontSize: '16',
+                                        //color:'FFFFFF',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                labelLine: {
+                                    show: true
+                                },
+                                data: [
+                                    {
+                                        value: 300,
+                                        name: '平均速度：' + '\n' + '\n' + '700' + '平方米/小时',
+                                        itemStyle: {color: "#64dfdf"}
+                                    },
+                                    {
+                                        value: 300,
+                                        name: '耕作面积：' + '\n' + '\n' + '1133' + '平方米',
+                                        itemStyle: {color: "#4ea8de"}
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option1);
+
+                    // 使用刚指定的配置项和数据显示图表。
+                </script>
+                <div class="col-md-3" style="width:320px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px;text-align: center;background: url(img/line2.png)">
+                        2号田占地面积最小，但是时均耕地速度却比较快速，可能与工作时长较短有关。</p>
+                </div>
+
+            </div>
+            <div class="col-md-6 package1" style="cursor: pointer;">
+                <!--                    左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+
+                <div id="chart_7" style="width:100%; height: 400px ;margin: 0px;"></div>
+            </div>
+            <!--     20190414 - 2b-->
+            <div class="col-md-3 ">
+                <div class="col-md-3" style="width:370px;height: 180px; margin: 20px;background: url(img/line1.png)">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; "></p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">耕地规律分析：</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">1.整体耕耘轨迹不成板块，比较稀疏。</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">2.耕作是在一定范围内来回进行，不成圆圈。</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">3.转弯时的耕地速度低于直线耕地速度。</p>
+
+                </div>
+                <div class="col-md-3" style="width:370px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 20px; text-align: center">总耕地时间</p>
+                </div>
+                <div class="col-md-3" id="main22" style="width:370px;height:280px;margin: 0px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main22'));
+                    var option1 = {
+                        series: [{
+                            type: 'gauge',
+                            startAngle: 180,
+                            endAngle: 0,
+                            min: 0,
+                            max: 1,
+                            splitNumber: 8,
+                            axisLine: {
+                                lineStyle: {
+                                    width: 4,
+                                    color: [
+                                        [0.25, '#FF6E76'],
+                                        [0.5, '#FDDD60'],
+                                        [0.75, '#58D9F9'],
+                                        [1, '#7CFFB2']
+                                    ]
+                                }
+                            },
+                            pointer: {
+                                icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                                length: '40%',
+                                width: 3,
+                                offsetCenter: [0, '-70%'],
+                                itemStyle: {
+                                    color: 'auto'
+                                }
+                            },
+                            axisTick: {
+                                length: 10,
+                                lineStyle: {
+                                    color: 'auto',
+                                    width: 1
+                                }
+                            },
+                            splitLine: {
+                                length: 15,
+                                lineStyle: {
+                                    color: 'auto',
+                                    width: 2
+                                }
+                            },
+                            axisLabel: {
+                                color: 'ffffff',
+                                fontSize: 10,
+                                rotate: 'horizontal',
+                                distance: -40,
+                                formatter: function (value) {
+                                    if (value === 0.875) {
+                                        return '>4.5h';
+                                    } else if (value === 0.625) {
+                                        return '3h~4.5h';
+                                    } else if (value === 0.375) {
+                                        return '1.5h~3h';
+                                    } else if (value === 0.125) {
+                                        return '<1.5h';
+                                    }
+                                }
+                            },
+                            title: {
+                                color: 'ffffff',
+                                offsetCenter: [0, '-20%'],
+                                fontSize: 10
+                            },
+                            detail: {
+                                fontSize: 10,
+                                offsetCenter: [0, '0%'],
+                                valueAnimation: true,
+                                formatter: function (value) {
+                                    return '\n' + '\n' + '1小时37分0秒';
+                                },
+                                color: 'auto'
+                            },
+                            data: [{
+                                value: 0.278
+
+                            }]
+                        }]
+                    };
+                    myChart.setOption(option1);
+                    // 使用刚指定的配置项和数据显示图表。
+                </script>
+            </div>
+
+        </div>
+    </div>
+    <!--     20190414 - 3a-->
+    <div class="container-fluid">
+        <div class="row paddtop">
+            <div class="col-md-3 ">
+                <div class="col-md-3" style="width:320px;height: 200px; margin: 0px;background: url(img/line1.png)">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; "></p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">耕地规律分析：</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">1.整体轨迹是成一块完整的平行四边形，耕耘也比较密集。</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">2.耕作是在一定范围内来回进行，不成圆圈。</p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px; ">3.耕作的方向变化是具有板块性的，不是随机变化的。</p>
+
+                </div>
+                <div class="col-md-3" style="width:320px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 10px; text-align: center"></p>
+                    <p style="color:#ffffff;font-weight: bold;font-size: 20px;  text-align: center">总耕地时间</p>
+                </div>
+                <div class="col-md-3" id="main33" style="width:320px;height:280px;margin: 0px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main33'));
+                    var option1 = {
+                        series: [{
+                            type: 'gauge',
+                            startAngle: 180,
+                            endAngle: 0,
+                            min: 0,
+                            max: 1,
+                            splitNumber: 8,
+                            axisLine: {
+                                lineStyle: {
+                                    width: 4,
+                                    color: [
+                                        [0.25, '#FF6E76'],
+                                        [0.5, '#FDDD60'],
+                                        [0.75, '#58D9F9'],
+                                        [1, '#7CFFB2']
+                                    ]
+                                }
+                            },
+                            pointer: {
+                                icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                                length: '40%',
+                                width: 3,
+                                offsetCenter: [0, '-70%'],
+                                itemStyle: {
+                                    color: 'auto'
+                                }
+                            },
+                            axisTick: {
+                                length: 10,
+                                lineStyle: {
+                                    color: 'auto',
+                                    width: 1
+                                }
+                            },
+                            splitLine: {
+                                length: 15,
+                                lineStyle: {
+                                    color: 'auto',
+                                    width: 2
+                                }
+                            },
+                            axisLabel: {
+                                color: 'ffffff',
+                                fontSize: 10,
+                                rotate: 'horizontal',
+                                distance: -40,
+                                formatter: function (value) {
+                                    if (value === 0.875) {
+                                        return '>4.5h';
+                                    } else if (value === 0.625) {
+                                        return '3h~4.5h';
+                                    } else if (value === 0.375) {
+                                        return '1.5h~3h';
+                                    } else if (value === 0.125) {
+                                        return '<1.5h';
+                                    }
+                                }
+                            },
+                            title: {
+                                color: 'ffffff',
+                                offsetCenter: [0, '-20%'],
+                                fontSize: 10
+                            },
+                            detail: {
+                                fontSize: 10,
+                                offsetCenter: [0, '0%'],
+                                valueAnimation: true,
+                                formatter: function (value) {
+                                    return '\n' + '\n' + '9小时21分0秒';
+                                },
+                                color: 'auto'
+                            },
+                            data: [{
+                                value: 1
+
+                            }]
+                        }]
+                    };
+                    myChart.setOption(option1);
+                    // 使用刚指定的配置项和数据显示图表。
+                </script>
+            </div>
+            <div class="col-md-6 package1" style="cursor: pointer;">
+                <!--                    左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+
+                <div id="chart_8" style="width:100%; height: 400px ;margin: 0px;"></div>
+            </div>
+            <!--     20190414 - 3b-->
+            <div class="col-md-3 ">
+                <div class="col-md-3" style="width:370px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 20px;text-align: center">3 号田平均速度与耕地面积</p>
+                </div>
+                <div class="col-md-3" id="main3" style="width:370px;height:300px;margin: 0px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main3'));
+                    var option1 = {
+
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    label: {
+                                        show: true,
+                                        fontSize: '16',
+                                        //color:'FFFFFF',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                labelLine: {
+                                    show: true
+                                },
+                                data: [
+                                    {
+                                        value: 300,
+                                        name: '平均速度：' + '\n' + '\n' + '7010' + '平方米/小时',
+                                        itemStyle: {color: "#4ea8de"}
+                                    },
+                                    {
+                                        value: 300,
+                                        name: '耕作面积：' + '\n' + '\n' + '65548' + '平方米',
+                                        itemStyle: {color: "#64dfdf"}
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option1);
+
+                    // 使用刚指定的配置项和数据显示图表。
+                </script>
+                <div class="col-md-3" style="width:370px;margin: 0px;">
+                    <p style="color:#ffffff;font-weight: bold;font-size: 15px;text-align: center;background: url(img/line2.png)">
+                        3号田占地面积较大，但时均耕地速度也比较快，可能与当天工作时长太长了有关。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+</body>
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/dataTool.js"></script>
+<script src="js/index2.js"></script>
+<script src="js/china.js"></script>
+<script src="js/hunan.js"></script>
+</html>
